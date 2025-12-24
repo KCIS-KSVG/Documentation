@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   // 你的 GitHub 仓库路径
-  base: '/Documentation/',
+  base: '/',
 
   // 网站标题修改为 KSVG Documentation
   title: "Documentation",
