@@ -1,0 +1,146 @@
+:root {
+  /* KSVG 品牌色定义 */
+  --vp-c-brand-1: #920783;
+  --vp-c-brand-2: #b50ca3;
+  --vp-c-brand-3: #d91cc3;
+  
+  /* 字体定义 */
+  --vp-font-family-base: 'Inter', sans-serif;
+  --vp-font-family-head: 'Poppins', sans-serif;
+
+  /* 背景色变量 - 用于卡片 */
+  --bg-card: #f5f5f7;
+  --text-primary: #1d1d1f;
+  --text-secondary: #86868b;
+}
+
+/* 深色模式适配 */
+.dark {
+  --bg-card: #1c1c1e;
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1a6;
+}
+
+/* 标题统一使用 Poppins 字体 */
+h1, h2, h3, h4 { font-family: var(--vp-font-family-head); }
+
+/* 强制覆盖主题按钮颜色，确保文字为白色清晰可见 */
+.VPButton.brand {
+  background-color: var(--vp-c-brand-1) !important;
+  border-color: var(--vp-c-brand-1) !important;
+  color: #ffffff !important;
+}
+.VPButton.brand:hover {
+  background-color: var(--vp-c-brand-2) !important;
+}
+
+/* --- 首页容器布局 --- */
+.home-container {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 40px 24px; /* 稍微减小上下内边距 */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+/* --- 纯文字卡片样式 --- */
+.text-card {
+  background: var(--bg-card);
+  padding: 40px;
+  padding-top: 60px;
+  border-radius: 24px;
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 数字水印样式 */
+.card-icon {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 1;
+  color: var(--text-primary);
+  opacity: 0.06;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.text-card h2 {
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.text-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+}
+
+/* --- 底部 CTA (行动呼吁) 区域修复 --- */
+.cta-section {
+  margin-top: 40px; /* 减小上方间距 */
+  padding: 80px 24px;
+  text-align: center;
+  /* border-top: 1px solid var(--vp-c-divider); <--- 删除了这行，消除双重线条 */
+}
+
+.cta-content h2 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  
+  /* 修复文字切割问题：增加行高和内边距 */
+  line-height: 1.4; 
+  padding-bottom: 0.2em;
+  
+  /* 标题渐变色效果 */
+  background: linear-gradient(120deg, var(--text-primary), var(--vp-c-brand-1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cta-content p {
+  font-size: 20px;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -10px; /* 微调位置 */
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* 底部按钮样式修正 */
+.cta-button {
+  font-size: 18px !important;
+  padding: 12px 32px !important;
+  border-radius: 30px !important;
+  font-weight: 600 !important;
+  height: auto !important;
+  line-height: 1.5 !important;
+  text-decoration: none !important; /* <--- 修复：强制去掉下划线 */
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .home-container { grid-template-columns: 1fr; }
+  .cta-content h2 { font-size: 32px; }
+  .cta-content p { font-size: 16px; }
+  .card-icon { font-size: 60px; top: 15px; right: 15px; }
+}
