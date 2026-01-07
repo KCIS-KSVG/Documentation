@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 标准化文件库
-      link: /standards/KSVG-10-01
+      link: /standards/ks-1001
     - theme: alt
       text: 组织首页
       link: https://ksvg.com.cn/
