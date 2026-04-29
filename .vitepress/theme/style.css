@@ -1,146 +1,108 @@
 :root {
-  /* KSVG 品牌色定义 */
   --vp-c-brand-1: #920783;
-  --vp-c-brand-2: #b50ca3;
-  --vp-c-brand-3: #d91cc3;
-  
-  /* 字体定义 */
-  --vp-font-family-base: 'Inter', sans-serif;
-  --vp-font-family-head: 'Poppins', sans-serif;
-
-  /* 背景色变量 - 用于卡片 */
-  --bg-card: #f5f5f7;
-  --text-primary: #1d1d1f;
-  --text-secondary: #86868b;
+  --vp-c-brand-soft: rgba(146, 7, 131, 0.05);
+  --wm-text: "KSVG DOCS"; /* 默认回退值 */
 }
 
-/* 深色模式适配 */
-.dark {
-  --bg-card: #1c1c1e;
-  --text-primary: #f5f5f7;
-  --text-secondary: #a1a1a6;
-}
-
-/* 标题统一使用 Poppins 字体 */
-h1, h2, h3, h4 { font-family: var(--vp-font-family-head); }
-
-/* 强制覆盖主题按钮颜色，确保文字为白色清晰可见 */
-.VPButton.brand {
-  background-color: var(--vp-c-brand-1) !important;
-  border-color: var(--vp-c-brand-1) !important;
-  color: #ffffff !important;
-}
-.VPButton.brand:hover {
-  background-color: var(--vp-c-brand-2) !important;
-}
-
-/* --- 首页容器布局 --- */
-.home-container {
-  max-width: 1152px;
-  margin: 0 auto;
-  padding: 40px 24px; /* 稍微减小上下内边距 */
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-}
-
-/* --- 纯文字卡片样式 --- */
-.text-card {
-  background: var(--bg-card);
-  padding: 40px;
-  padding-top: 60px;
-  border-radius: 24px;
-  transition: transform 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-/* 数字水印样式 */
-.card-icon {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 80px;
-  line-height: 1;
-  color: var(--text-primary);
-  opacity: 0.06;
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.text-card h2 {
-  font-size: 32px;
-  line-height: 1.2;
-  font-weight: 700;
+/* --- 屏幕显示：按钮样式 --- */
+.print-button {
   margin-bottom: 20px;
-  color: var(--text-primary);
-  position: relative;
-  z-index: 1;
+  padding: 8px 20px;
+  background-color: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+  border: 1.5px solid var(--vp-c-brand-1);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  outline: none;
 }
 
-.text-card p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  position: relative;
-  z-index: 1;
+.print-button:hover {
+  background-color: var(--vp-c-brand-1);
+  color: white;
 }
 
-/* --- 底部 CTA (行动呼吁) 区域修复 --- */
-.cta-section {
-  margin-top: 40px; /* 减小上方间距 */
-  padding: 80px 24px;
-  text-align: center;
-  /* border-top: 1px solid var(--vp-c-divider); <--- 删除了这行，消除双重线条 */
-}
+/* --- 打印预览/PDF 输出专用样式 --- */
+@media print {
+  /* 1. 彻底隐藏所有导航、菜单栏、侧边栏和辅助控件 */
+  .VPNav,           /* 顶部主导航 */
+  .VPSidebar,       /* 左侧侧边栏 */
+  .VPLocalNav,      /* 这里的 "Menu / On this page" 关键条栏 */
+  .VPDocAside,      /* 右侧文章大纲 */
+  .VPDocFooter,     /* 文章底部的上一篇/下一篇 */
+  .print-button,    /* 打印按钮自身 */
+  .edit-link,       /* 编辑链接 */
+  .header-anchor,   /* 标题旁边的锚点图标 */
+  .VPCustomLayout   /* 任何自定义布局 */
+  {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
-.cta-content h2 {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  
-  /* 修复文字切割问题：增加行高和内边距 */
-  line-height: 1.4; 
-  padding-bottom: 0.2em;
-  
-  /* 标题渐变色效果 */
-  background: linear-gradient(120deg, var(--text-primary), var(--vp-c-brand-1));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+  /* 2. 修正内容区域，去除所有边距和装饰线 */
+  .VPContent, .VPDoc, .container, .content-container {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+  }
 
-.cta-content p {
-  font-size: 20px;
-  color: var(--text-secondary);
-  margin-bottom: 40px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -10px; /* 微调位置 */
-}
+  /* 3. 移除文章内所有横线、装饰性边框 */
+  hr, 
+  h1, h2, h3, h4, h5, h6 {
+    border: none !important;
+    border-bottom: none !important;
+    outline: none !important;
+  }
 
-.cta-actions {
-  display: flex;
-  justify-content: center;
-}
+  /* 4. 满屏水印实现 */
+  /* 我们在 body 上创建一个无限平铺的背景层 */
+  body::before {
+    content: var(--wm-text); /* 使用从 JS 传入的动态信息 */
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: -1;
+    pointer-events: none;
+    
+    /* 水印文字样式 */
+    font-size: 10pt;
+    font-family: 'Inter', sans-serif;
+    color: rgba(0, 0, 0, 0.04); /* 极淡灰色 */
+    
+    /* 利用 repeating-linear-gradient 或简单的文字平铺模拟 */
+    /* 由于 CSS 无法直接平铺文字，我们使用 background-image 方案最为稳妥 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Ctext x='50%25' y='50%25' font-size='10' fill='rgba(0,0,0,0.04)' text-anchor='middle' font-family='sans-serif' transform='rotate(-25, 150, 100)'%3EKSVG DOCS%3C/text%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
 
-/* 底部按钮样式修正 */
-.cta-button {
-  font-size: 18px !important;
-  padding: 12px 32px !important;
-  border-radius: 30px !important;
-  font-weight: 600 !important;
-  height: auto !important;
-  line-height: 1.5 !important;
-  text-decoration: none !important; /* <--- 修复：强制去掉下划线 */
-}
+  /* 5. 页面底部动态信息（精确信息：时间+IP） */
+  body::after {
+    content: var(--wm-text);
+    position: fixed;
+    bottom: 5mm;
+    right: 5mm;
+    font-size: 7pt;
+    color: rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+  }
 
-/* 移动端适配 */
-@media (max-width: 768px) {
-  .home-container { grid-template-columns: 1fr; }
-  .cta-content h2 { font-size: 32px; }
-  .cta-content p { font-size: 16px; }
-  .card-icon { font-size: 60px; top: 15px; right: 15px; }
+  /* 6. 打印排版微调 */
+  article {
+    color: #000 !important;
+    background: transparent !important;
+  }
+
+  /* 确保标题不被强制分页切割 */
+  h1, h2, h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
 }
