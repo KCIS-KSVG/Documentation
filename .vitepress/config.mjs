@@ -1,11 +1,8 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  // 你的 GitHub 仓库路径 (自定义域名根目录)
   base: '/',
-
-  // 网站标题
-  title: "Documentation",
+  title: "KSVG Documentation",
   description: "昆山康桥学生摄影合作组织标准化文档",
 
   head: [
@@ -18,17 +15,15 @@ export default defineConfig({
   themeConfig: {
     logo: 'https://raw.githubusercontent.com/KCIS-KSVG/Data/main/embed/ksvg-logo.png',
 
-    // 顶部导航
     nav: [
       { text: '首页', link: '/' },
-      // 链接指向第一个标准文档
       { text: '标准文档库', link: '/standards/ks-1001' },
+      { text: '隐私政策', link: '/embed/privacy' },
+      { text: '招募政策', link: '/embed/recruiting' }
     ],
 
-    // 侧边栏配置
     sidebar: {
       '/standards/': [
-        // --- 1000 基础架构 ---
         {
           text: '1000 基础与行政',
           items: [
@@ -37,8 +32,6 @@ export default defineConfig({
             { text: 'KS-1003 合规性与风险控制规范', link: '/standards/ks-1003' }
           ]
         },
-
-        // --- 2000 人力资源体系 ---
         {
           text: '2000 人力与能力',
           items: [
@@ -58,8 +51,6 @@ export default defineConfig({
             { text: 'KS-2106 后期剪辑师岗位职责说明书', link: '/standards/ks-2106' }
           ]
         },
-
-        // --- 3000 资产管理 ---
         {
           text: '3000 资产与环境',
           items: [
@@ -68,8 +59,6 @@ export default defineConfig({
             { text: 'KS-3003 知识库建设与传承管理规范', link: '/standards/ks-3003' }
           ]
         },
-
-        // --- 4000 业务运行体系 ---
         {
           text: '4000 业务运行',
           items: [
@@ -88,8 +77,6 @@ export default defineConfig({
             { text: 'KS-4103 航空摄影安全操作细则', link: '/standards/ks-4103' }
           ]
         },
-
-        // --- 5000 评价与改进 ---
         {
           text: '5000 评价与改进',
           items: [

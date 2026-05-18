@@ -1,0 +1,167 @@
+---
+title: 招募政策 | KSVG
+editLink: true
+---
+
+# 招募政策
+
+<div class="subtitle">
+最后更新：2026年5月18日 | 生效日期：2026年5月18日
+</div>
+
+<style>
+.subtitle {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.footer-note {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.8rem;
+  color: #64748b;
+  text-align: center;
+}
+</style>
+
+## 1. 招募总则
+
+### 1.1 适用范围
+本招募政策适用于 KSVG（昆山康桥学生摄影合作组织）及其合作伙伴发布的所有招募活动，包括但不限于：
+- 定期招募（春秋季招募）
+- 长期招募（特招通道）
+- 项目制招募
+
+### 1.2 基本要求
+申请人须为昆山康桥学校在校学生（G7-G12），认同 KSVG 的使命与价值观，具备团队合作精神。
+
+## 2. 申请流程
+
+| 步骤 | 说明 |
+|------|------|
+| **第1步** | 阅读并同意本招募政策 |
+| **第2步** | 填写在线问卷，提交个人信息 |
+| **第3步** | 等待初审结果通知（5个工作日内） |
+| **第4步** | 通过初审者参加面试/技能测试 |
+| **第5步** | 公布录取结果并办理入组手续 |
+
+## 3. 信息收集与使用
+
+### 3.1 收集的信息范围
+为完成招募评估，我们可能需要收集以下信息：
+- **基本信息**：姓名、年级、班级、联系方式
+- **技能信息**：摄影/摄像作品、相关经验、技术特长
+- **个人陈述**：申请动机、期望与目标
+
+### 3.2 信息使用说明
+- 所收集信息**仅用于招募评估**，不会用于其他目的
+- 未录取者的信息将在招募结束后 **60天内删除**
+- 录取者的信息将纳入组织成员档案管理
+
+## 4. 选拔标准
+
+| 维度 | 权重 | 说明 |
+|------|------|------|
+| **专业能力** | 40% | 摄影/摄像/后期制作等相关技能 |
+| **团队协作** | 25% | 沟通能力、合作意愿 |
+| **责任心** | 20% | 出勤率、任务完成度 |
+| **创新能力** | 15% | 创意表达、问题解决能力 |
+
+## 5. 权利与义务
+
+### 5.1 申请人的权利
+- 知晓招募进度与结果
+- 在指定时间内查询个人评估信息
+- 对招募结果提出合理异议
+
+### 5.2 申请人的义务
+- 提供真实、准确的个人信息
+- 按时参加面试及后续环节
+- 遵守 KSVG 组织章程
+
+### 5.3 KSVG 的权利
+- 根据实际需求调整招募名额
+- 对不符合要求的申请不予通过
+- 对弄虚作假者取消资格
+
+### 5.4 KSVG 的义务
+- 公平、公正地评估所有申请
+- 保护申请人的个人信息安全
+- 及时反馈招募进展
+
+## 6. 保密承诺
+
+KSVG 承诺：
+- 不向第三方出售、出租或交易申请人信息
+- 仅在招募评估范围内使用所收集信息
+- 采取合理安全措施保护信息免受未授权访问
+
+## 7. 申诉与反馈
+
+如对招募过程有任何疑问或异议，可通过以下渠道反馈：
+
+| 方式 | 信息 |
+|------|------|
+| **电子邮箱** | `support@ksvg.com.cn` |
+| **反馈时限** | 结果公布后7个工作日内 |
+
+我们将在 **5个工作日内** 予以回复。
+
+## 8. 政策更新
+
+本招募政策可能会根据实际情况进行调整。重大变更时，我们将在招募页面提前公告。
+
+---
+
+## 同意与继续
+
+<div class="agreement-box">
+  <div class="agreement-checkbox" id="agreementCheckbox">
+    <input type="checkbox" id="agreeCheckbox">
+    <label for="agreeCheckbox">我已阅读、理解并同意遵守上述招募政策</label>
+  </div>
+  <button class="continue-btn" id="continueBtn" disabled>
+    同意并继续填写问卷
+  </button>
+</div>
+
+<div class="footer-note">
+如您对本招募政策有任何疑问，请联系 <code>support@ksvg.com.cn</code>。<br>
+KSVG 保留对本招募政策的最终解释权。
+</div>
+
+<script>
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+const checkbox = document.getElementById('agreeCheckbox');
+const continueBtn = document.getElementById('continueBtn');
+const returnUrl = getQueryParam('returnUrl') || '../recruiting/';
+
+if (checkbox && continueBtn) {
+  checkbox.addEventListener('change', function() {
+    if (this.checked) {
+      continueBtn.classList.add('enabled');
+      continueBtn.disabled = false;
+    } else {
+      continueBtn.classList.remove('enabled');
+      continueBtn.disabled = true;
+    }
+  });
+
+  continueBtn.addEventListener('click', function() {
+    if (checkbox.checked) {
+      sessionStorage.setItem('recruiting_policy_agreed', 'true');
+      sessionStorage.setItem('recruiting_policy_agreed_at', new Date().toISOString());
+      window.location.href = returnUrl;
+    }
+  });
+}
+</script>

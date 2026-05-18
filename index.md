@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "KSVG Documentation"
+  name: "KSVG Docs"
   text: "Setting the Standard."
   tagline: 制定校园摄影团队行政与技术标准
   image:
@@ -54,34 +54,20 @@ onUnmounted(() => {
   
   <!-- 卡片 1 -->
   <div class="text-card">
-    <span class="card-icon">01</span>
     <h2>行政标准化<br>Administrative.</h2>
     <p>KSVG 致力于构建可持续运行的校园影像组织架构。我们制定人员招募、器材管理、资产归档以及数据安全的行政SOP，确保组织在人员更迭中保持高效运行。</p>
   </div>
 
   <!-- 卡片 2 -->
   <div class="text-card">
-    <span class="card-icon">02</span>
     <h2>技术性规范<br>Industrial.</h2>
     <p>从色彩空间的统一，到文件命名的标准化。我们将影像生产过程量化为可执行的技术标准，为校园社群提供高质量、一致性的视觉输出。</p>
   </div>
 
   <!-- 卡片 3 -->
   <div class="text-card">
-    <span class="card-icon">03</span>
     <h2>开放与开源<br>Open Standard.</h2>
     <p>我们的标准文档完全开源。无论是校内独立创作者还是其他学生组织，均可参考 KSVG 标准化体系，共同推动校园影像技术的专业化进程。</p>
   </div>
 
-</div>
-
-<!-- 底部呼吁行动区域 -->
-<div class="cta-section">
-  <div class="cta-content">
-    <h2>准备好开始了吗？</h2>
-    <p>查阅 KSVG 标准化文档，开启专业化流程。</p>
-    <div class="cta-actions">
-      <a class="VPButton brand medium cta-button" href="standards/KSVG-10-01">浏览文档库</a>
-    </div>
-  </div>
 </div>
