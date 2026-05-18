@@ -118,50 +118,7 @@ KSVG 承诺：
 
 ---
 
-## 同意与继续
-
-<div class="agreement-box">
-  <div class="agreement-checkbox" id="agreementCheckbox">
-    <input type="checkbox" id="agreeCheckbox">
-    <label for="agreeCheckbox">我已阅读、理解并同意遵守上述招募政策</label>
-  </div>
-  <button class="continue-btn" id="continueBtn" disabled>
-    同意并继续填写问卷
-  </button>
-</div>
-
 <div class="footer-note">
-如您对本招募政策有任何疑问，请联系 <code>support@ksvg.com.cn</code>。<br>
+本招募政策以中文为官方语言版本。如需其他语言翻译，请联系 support@ksvg.com.cn。<br>
 KSVG 保留对本招募政策的最终解释权。
 </div>
-
-<script>
-function getQueryParam(param) {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get(param);
-}
-
-const checkbox = document.getElementById('agreeCheckbox');
-const continueBtn = document.getElementById('continueBtn');
-const returnUrl = getQueryParam('returnUrl') || '../recruiting/';
-
-if (checkbox && continueBtn) {
-  checkbox.addEventListener('change', function() {
-    if (this.checked) {
-      continueBtn.classList.add('enabled');
-      continueBtn.disabled = false;
-    } else {
-      continueBtn.classList.remove('enabled');
-      continueBtn.disabled = true;
-    }
-  });
-
-  continueBtn.addEventListener('click', function() {
-    if (checkbox.checked) {
-      sessionStorage.setItem('recruiting_policy_agreed', 'true');
-      sessionStorage.setItem('recruiting_policy_agreed_at', new Date().toISOString());
-      window.location.href = returnUrl;
-    }
-  });
-}
-</script>
