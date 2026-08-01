@@ -1,103 +1,153 @@
 import { defineConfig } from 'vitepress'
+import { nav } from './config/nav'
+import { sidebar } from './config/sidebar'
 
 export default defineConfig({
   base: '/',
-  title: "KSVG Documentation",
-  description: "昆山康桥学生摄影合作组织标准化文档",
+  lang: 'zh-CN',
+  title: 'KSVG Wiki | Photography Knowledge Base',
+  description: 'KSVG 摄影与媒体技术知识库',
 
   head: [
     ['link', { rel: 'icon', href: 'https://raw.githubusercontent.com/KCIS-KSVG/Data/main/embed/ksvg-logo.png' }],
-    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
-    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
-    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap' }]
+    ['meta', { property: 'og:title', content: 'KSVG Wiki' }],
+    ['meta', { property: 'og:description', content: 'KSVG 摄影与媒体技术知识库' }],
+    ['meta', { name: 'robots', content: 'index, follow' }],
+    ['link', { rel: 'canonical', href: 'https://wiki.ksvg.com.cn/' }],
+    ['meta', { name: 'geo.region', content: 'CN' }],
+    ['meta', { name: 'geo.placename', content: 'China' }],
   ],
 
-  themeConfig: {
-    logo: 'https://raw.githubusercontent.com/KCIS-KSVG/Data/main/embed/ksvg-logo.png',
-
-    nav: [
-      { text: '首页', link: '/' },
-      { text: '标准文档库', link: '/standards/ks-1001' },
-      { text: '隐私政策', link: '/embed/privacy' },
-      { text: '招募政策', link: '/embed/recruiting' }
-    ],
-
-    sidebar: {
-      '/standards/': [
-        {
-          text: '1000 基础与行政',
-          items: [
-            { text: 'KS-1001 组织行政架构与权责分配通则', link: '/standards/ks-1001' },
-            { text: 'KS-1002 标准体系文件管理规范', link: '/standards/ks-1002' },
-            { text: 'KS-1003 合规性与风险控制规范', link: '/standards/ks-1003' }
-          ]
-        },
-        {
-          text: '2000 人力与能力',
-          items: [
-            { text: 'KS-2001 成员准入与身份管理规范', link: '/standards/ks-2001' },
-            { text: 'KS-2002 岗位能力要求与资格认证标准', link: '/standards/ks-2002' },
-            { text: 'KS-2003 行为准则与道德规范', link: '/standards/ks-2003' }
-          ]
-        },
-        {
-          text: '2100 岗位职责说明书',
-          items: [
-            { text: 'KS-2101 行政专员岗位职责说明书', link: '/standards/ks-2101' },
-            { text: 'KS-2102 摄影师岗位职责说明书', link: '/standards/ks-2102' },
-            { text: 'KS-2103 摄像师岗位职责说明书', link: '/standards/ks-2103' },
-            { text: 'KS-2104 摄影指导岗位职责说明书', link: '/standards/ks-2104' },
-            { text: 'KS-2105 航拍操作员岗位职责说明书', link: '/standards/ks-2105' },
-            { text: 'KS-2106 后期剪辑师岗位职责说明书', link: '/standards/ks-2106' }
-          ]
-        },
-        {
-          text: '3000 资产与环境',
-          items: [
-            { text: 'KS-3001 实体资产配置与控制规范', link: '/standards/ks-3001' },
-            { text: 'KS-3002 数据资产与信息安全管理规范', link: '/standards/ks-3002' },
-            { text: 'KS-3003 知识库建设与传承管理规范', link: '/standards/ks-3003' }
-          ]
-        },
-        {
-          text: '4000 业务运行',
-          items: [
-            { text: 'KS-4001 运行策划与需求评审规范', link: '/standards/ks-4001' },
-            { text: 'KS-4002 创意设计与开发控制规范', link: '/standards/ks-4002' },
-            { text: 'KS-4003 服务提供与现场执行规范', link: '/standards/ks-4003' },
-            { text: 'KS-4004 外部供应与协作方管理规范', link: '/standards/ks-4004' },
-            { text: 'KS-4005 产品交付与放行规范', link: '/standards/ks-4005' }
-          ]
-        },
-        {
-          text: '4100 技术执行细则',
-          items: [
-            { text: 'KS-4101 视觉识别系统 (VI) 与品牌应用规范', link: '/standards/ks-4101' },
-            { text: 'KS-4102 影像交付技术参数标准', link: '/standards/ks-4102' },
-            { text: 'KS-4103 航空摄影安全操作细则', link: '/standards/ks-4103' }
-          ]
-        },
-        {
-          text: '5000 评价与改进',
-          items: [
-            { text: 'KS-5001 绩效监视与测量标准', link: '/standards/ks-5001' },
-            { text: 'KS-5002 内部审核与管理评审规范', link: '/standards/ks-5002' },
-            { text: 'KS-5003 不合格项控制与纠正措施', link: '/standards/ks-5003' }
-          ]
-        },
-        {
-          text: '5100 评价量化表',
-          items: [
-            { text: 'KS-5101 成员绩效积分实施细则', link: '/standards/ks-5101' }
-          ]
+  // 多语言配置
+  locales: {
+    root: {
+      label: '简体中文',
+      lang: 'zh-CN',
+      link: '/zh-CN/',
+      themeConfig: {
+        // ============================================================
+        // 导航栏顺序：首页 → 快速开始 → 隐私政策（外部）→ 招募政策（外部）→ 官方网站（外部）→ 运营架构与标准（外部）
+        // ============================================================
+        nav: [
+          { text: '首页', link: '/' },
+          { 
+            text: '快速开始', 
+            link: '/01-photography-fundamentals/'
+          },
+          { 
+            text: '隐私政策', 
+            link: 'https://docs.ksvg.com.cn/embed/privacy.html',
+            target: '_blank' 
+          },
+          { 
+            text: '招募政策', 
+            link: 'https://docs.ksvg.com.cn/embed/recruiting.html',
+            target: '_blank' 
+          },
+          { 
+            text: '官方网站', 
+            link: 'https://ksvg.com.cn',
+            target: '_blank' 
+          },
+          { 
+            text: '运营架构与标准', 
+            link: 'https://docs.ksvg.com.cn',
+            target: '_blank' 
+          },
+        ],
+        sidebar: sidebar('zh-CN'),
+        footer: {
+          message: '基于 VitePress 构建 · 知识共享署名-非商业性使用 4.0',
+          copyright: 'Copyright © 2022-2026 KSVG'
         }
-      ]
+      }
     },
+    'zh-TW': {
+      label: '繁體中文',
+      lang: 'zh-TW',
+      link: '/zh-TW/',
+      themeConfig: {
+        nav: [
+          { text: '首頁', link: '/' },
+          { 
+            text: '快速開始', 
+            link: '/01-photography-fundamentals/'
+          },
+          { 
+            text: '隱私政策', 
+            link: 'https://docs.ksvg.com.cn/embed/privacy.html',
+            target: '_blank' 
+          },
+          { 
+            text: '招募政策', 
+            link: 'https://docs.ksvg.com.cn/embed/recruiting.html',
+            target: '_blank' 
+          },
+          { 
+            text: '官方網站', 
+            link: 'https://ksvg.com.cn',
+            target: '_blank' 
+          },
+          { 
+            text: '運營架構與標準', 
+            link: 'https://docs.ksvg.com.cn',
+            target: '_blank' 
+          },
+        ],
+        sidebar: sidebar('zh-TW'),
+        footer: {
+          message: '基於 VitePress 構建 · 知識共享署名-非商業性使用 4.0',
+          copyright: 'Copyright © 2022-2026 KSVG'
+        }
+      }
+    },
+    'en-US': {
+      label: 'English',
+      lang: 'en-US',
+      link: '/en-US/',
+      themeConfig: {
+        nav: [
+          { text: 'Home', link: '/' },
+          { 
+            text: 'Quick Start', 
+            link: '/01-photography-fundamentals/'
+          },
+          { 
+            text: 'Privacy Policy', 
+            link: 'https://docs.ksvg.com.cn/embed/privacy.html',
+            target: '_blank' 
+          },
+          { 
+            text: 'Recruiting Policy', 
+            link: 'https://docs.ksvg.com.cn/embed/recruiting.html',
+            target: '_blank' 
+          },
+          { 
+            text: 'Official Site', 
+            link: 'https://ksvg.com.cn',
+            target: '_blank' 
+          },
+          { 
+            text: 'Operations & Standards', 
+            link: 'https://docs.ksvg.com.cn',
+            target: '_blank' 
+          },
+        ],
+        sidebar: sidebar('en-US'),
+        footer: {
+          message: 'Built with VitePress · Creative Commons Attribution-NonCommercial 4.0',
+          copyright: 'Copyright © 2022-2026 KSVG'
+        }
+      }
+    }
+  },
 
+  themeConfig: {
     socialLinks: [
       { icon: 'github', link: 'https://github.com/KCIS-KSVG' }
     ],
-
-    search: { provider: 'local' }
+    search: {
+      provider: 'local'
+    }
   }
 })

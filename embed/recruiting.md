@@ -119,6 +119,8 @@ KSVG 承诺：
 ---
 
 <div class="footer-note">
-本招募政策以中文为官方语言版本。如需其他语言翻译，请联系 support@ksvg.com.cn。<br>
-KSVG 保留对本招募政策的最终解释权。
+<strong>语言版本</strong><br>
+本隐私政策以中文版本为官方版本，具有执行效力。英文及繁体中文翻译仅供参考，如与中文版本存在任何歧义，以中文版本为准。<br><br>
+如需获取翻译件，请通过 <code>support@ksvg.com.cn</code> 与我们联系。<br><br>
+KSVG 保留对本隐私政策的最终解释权。
 </div>
