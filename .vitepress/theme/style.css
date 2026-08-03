@@ -1,108 +1,37 @@
+/* ============================================================
+   隐藏 VitePress 默认标题，让自定义标题生效
+   ============================================================ */
+.VPNavBarTitle .title {
+  display: none !important;
+}
+
+.VPNavBarTitle {
+  display: flex;
+  align-items: center;
+}
+
+.custom-nav-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-nav-title img {
+  height: 28px;
+  width: auto;
+}
+
+.custom-nav-title span {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* ============================================================
+   Docs 专属：紫色主题（覆盖 VitePress 默认蓝色）
+   ============================================================ */
 :root {
-  --vp-c-brand-1: #920783;
-  --vp-c-brand-soft: rgba(146, 7, 131, 0.05);
-  --wm-text: "KSVG DOCS"; /* 默认回退值 */
-}
-
-/* --- 屏幕显示：按钮样式 --- */
-.print-button {
-  margin-bottom: 20px;
-  padding: 8px 20px;
-  background-color: var(--vp-c-brand-soft);
-  color: var(--vp-c-brand-1);
-  border: 1.5px solid var(--vp-c-brand-1);
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  outline: none;
-}
-
-.print-button:hover {
-  background-color: var(--vp-c-brand-1);
-  color: white;
-}
-
-/* --- 打印预览/PDF 输出专用样式 --- */
-@media print {
-  /* 1. 彻底隐藏所有导航、菜单栏、侧边栏和辅助控件 */
-  .VPNav,           /* 顶部主导航 */
-  .VPSidebar,       /* 左侧侧边栏 */
-  .VPLocalNav,      /* 这里的 "Menu / On this page" 关键条栏 */
-  .VPDocAside,      /* 右侧文章大纲 */
-  .VPDocFooter,     /* 文章底部的上一篇/下一篇 */
-  .print-button,    /* 打印按钮自身 */
-  .edit-link,       /* 编辑链接 */
-  .header-anchor,   /* 标题旁边的锚点图标 */
-  .VPCustomLayout   /* 任何自定义布局 */
-  {
-    display: none !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  /* 2. 修正内容区域，去除所有边距和装饰线 */
-  .VPContent, .VPDoc, .container, .content-container {
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    max-width: 100% !important;
-    box-shadow: none !important;
-  }
-
-  /* 3. 移除文章内所有横线、装饰性边框 */
-  hr, 
-  h1, h2, h3, h4, h5, h6 {
-    border: none !important;
-    border-bottom: none !important;
-    outline: none !important;
-  }
-
-  /* 4. 满屏水印实现 */
-  /* 我们在 body 上创建一个无限平铺的背景层 */
-  body::before {
-    content: var(--wm-text); /* 使用从 JS 传入的动态信息 */
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    z-index: -1;
-    pointer-events: none;
-    
-    /* 水印文字样式 */
-    font-size: 10pt;
-    font-family: 'Inter', sans-serif;
-    color: rgba(0, 0, 0, 0.04); /* 极淡灰色 */
-    
-    /* 利用 repeating-linear-gradient 或简单的文字平铺模拟 */
-    /* 由于 CSS 无法直接平铺文字，我们使用 background-image 方案最为稳妥 */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Ctext x='50%25' y='50%25' font-size='10' fill='rgba(0,0,0,0.04)' text-anchor='middle' font-family='sans-serif' transform='rotate(-25, 150, 100)'%3EKSVG DOCS%3C/text%3E%3C/svg%3E");
-    background-repeat: repeat;
-  }
-
-  /* 5. 页面底部动态信息（精确信息：时间+IP） */
-  body::after {
-    content: var(--wm-text);
-    position: fixed;
-    bottom: 5mm;
-    right: 5mm;
-    font-size: 7pt;
-    color: rgba(0, 0, 0, 0.3);
-    z-index: 9999;
-  }
-
-  /* 6. 打印排版微调 */
-  article {
-    color: #000 !important;
-    background: transparent !important;
-  }
-
-  /* 确保标题不被强制分页切割 */
-  h1, h2, h3 {
-    page-break-after: avoid;
-    break-after: avoid;
-  }
+  --vp-c-brand-1: #7c3aed;
+  --vp-c-brand-2: #6d28d9;
+  --vp-c-brand-3: #5b21b6;
+  --vp-c-brand-soft: rgba(124, 58, 237, 0.14);
 }
